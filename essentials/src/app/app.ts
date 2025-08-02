@@ -3,10 +3,12 @@ import { HeaderComponent } from './header/header.component';
 import { UserComponent } from './user/user';
 import { DUMMY_USERS } from './dummy-users'
 import { TasksComponent } from './tasks/tasks';
+// import { NgFor } from '@angular/common'; for syntax before angular 17
 
 @Component({
   selector: 'app-root',
-  imports: [HeaderComponent, UserComponent, TasksComponent],
+  // imports: [HeaderComponent, UserComponent, TasksComponent, NgFor], for syntax before angular 17
+  imports: [HeaderComponent, UserComponent, TasksComponent, NgFor],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
