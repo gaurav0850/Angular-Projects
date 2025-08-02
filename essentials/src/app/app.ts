@@ -8,7 +8,7 @@ import { TasksComponent } from './tasks/tasks';
 @Component({
   selector: 'app-root',
   // imports: [HeaderComponent, UserComponent, TasksComponent, NgFor], for syntax before angular 17
-  imports: [HeaderComponent, UserComponent, TasksComponent, NgFor],
+  imports: [HeaderComponent, UserComponent, TasksComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
