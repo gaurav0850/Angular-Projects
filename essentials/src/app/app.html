@@ -4,6 +4,7 @@
   <ul id="users">
     @for(user of users; track user.id) {
     <!-- <li *ngFor="let user of users"> for syntax before angular 17 -->
+    <li>
       <app-user [user]="user" (select)="onSelectUser($event)" />
     </li>
     }
