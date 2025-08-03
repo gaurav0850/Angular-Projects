@@ -1,6 +1,8 @@
+import { Injectable } from "@angular/core";
 import { type NewTaskData } from "./task/task.model";
 
-class TasksService {
+@Injectable({ providedIn: 'root' })
+export class TasksService { //export to use it in other ts files.
 
   getUserTasks(userId: string) {
     return this.tasks.filter((task) => task.userId === userId);
@@ -17,7 +19,7 @@ class TasksService {
   }
 
   removeTask(id: string) {
-    this.tasks= this.tasks.filter((task) => task.id !== id);
+    this.tasks = this.tasks.filter((task) => task.id !== id);
   }
 
   private tasks = [
