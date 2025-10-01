@@ -9,7 +9,7 @@ import { UserInput } from './user-input/user-input';
   styleUrl: './app.css',
 })
 export class App {
-  calculateInvestmentResults(data: {
+  onCalculateInvestmentResults(data: {
     initialInvestment: number;
     annualInvestment: number;
     duration: number;
@@ -34,6 +34,6 @@ export class App {
       });
     }
 
-    return annualData;
+    console.log(annualData);
   }
 }
