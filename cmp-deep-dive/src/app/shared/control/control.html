@@ -1,4 +1,7 @@
-<p>
+<p class="control">
   <label>{{ label() }}</label>
+  <!-- .control input,.control textarea 
+   does not work for the following code in usual way
+   For this to work, encapsulation needs to be added-->
   <ng-content select="input, textarea"></ng-content>
 </p>
