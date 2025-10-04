@@ -12,7 +12,7 @@ export class ServerStatus implements OnInit {
   private destroyRef = inject(DestroyRef);
 
   ngOnInit() {
-    console.log('ng on init');
+    console.log('Server status ng on init');
     const interval = setInterval(() => {
       const random = Math.random();
       if (random < 0.5) {
@@ -30,6 +30,6 @@ export class ServerStatus implements OnInit {
   }
 
   ngAfterViewInit() {
-    console.log('After view init');
+    console.log('Server status After view init');
   }
 }
