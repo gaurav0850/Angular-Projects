@@ -1,4 +1,7 @@
 import {
+  AfterContentInit,
+  afterNextRender,
+  afterRenderEffect,
   Component,
   contentChild,
   ContentChild,
@@ -7,6 +10,7 @@ import {
   HostListener,
   inject,
   input,
+  OnInit,
   ViewEncapsulation,
 } from '@angular/core';
 
@@ -21,7 +25,7 @@ import {
     '(click)': 'onClick()',
   },
 })
-export class Control {
+export class Control implements AfterContentInit{
   // @HostBinding('class') className = 'control';
   // @HostListener('click') onClick() {
   //   console.log('clicked');
@@ -38,6 +42,21 @@ export class Control {
   private control = contentChild<ElementRef<
   HTMLInputElement | HTMLTextAreaElement>
   >('input');
+
+  constructor() {
+    afterRenderEffect(() => {
+      // if any component in angular application is changed, then this will execute
+      console.log('Control component After render effect');
+    });
+
+    afterNextRender(() => {
+      console.log('Control component After next render executed');
+    });
+  }
+
+  ngAfterContentInit(): void {
+    
+  }
 
   onClick() {
     console.log('Clicked');
