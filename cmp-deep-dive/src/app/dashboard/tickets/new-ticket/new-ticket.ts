@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild, viewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ButtonComponent } from '../../../shared/button/button';
 import { Control } from '../../../shared/control/control';
@@ -10,11 +10,14 @@ import { Control } from '../../../shared/control/control';
   styleUrl: './new-ticket.css',
 })
 export class NewTicket {
-  @ViewChild('form') form?: ElementRef<HTMLFormElement>;
+  // @ViewChild('form') form?: ElementRef<HTMLFormElement>;
+  // alternative to above code, available only in latest angular 17 or newer
+  // user ViewChildren to select more than one elements
+  private form = viewChild.required<ElementRef<HTMLFormElement>>('form');
 
   onSubmit(title: string, ticketText: string) {
     console.log(title);
     console.log(ticketText);
-    this.form?.nativeElement.reset();
+    this.form().nativeElement.reset();
   }
 }
