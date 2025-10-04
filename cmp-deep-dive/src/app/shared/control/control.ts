@@ -5,7 +5,10 @@ import { Component, input, ViewEncapsulation } from '@angular/core';
   imports: [],
   templateUrl: './control.html',
   styleUrl: './control.css',
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  host: {
+    class: 'control',
+  },
 })
 export class Control {
   label = input.required<string>();
