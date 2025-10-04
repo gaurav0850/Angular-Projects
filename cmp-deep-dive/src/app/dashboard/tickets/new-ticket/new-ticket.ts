@@ -3,6 +3,7 @@ import {
   Component,
   ElementRef,
   OnInit,
+  output,
   ViewChild,
   viewChild,
 } from '@angular/core';
@@ -22,6 +23,8 @@ export class NewTicket implements AfterViewInit, OnInit {
   // user ViewChildren to select more than one elements
   private form = viewChild.required<ElementRef<HTMLFormElement>>('form');
 
+  add = output<{ title: string; text: string }>();
+
   ngOnInit() {
     console.log('new ticket on init');
     console.log(this.form().nativeElement);
@@ -35,6 +38,7 @@ export class NewTicket implements AfterViewInit, OnInit {
   onSubmit(title: string, ticketText: string) {
     console.log(title);
     console.log(ticketText);
+    this.add.emit({ title: title, text: ticketText });
     this.form().nativeElement.reset();
   }
 }
