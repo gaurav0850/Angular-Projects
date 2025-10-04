@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-server-status',
@@ -6,12 +6,14 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './server-status.html',
   styleUrl: './server-status.css',
 })
-export class ServerStatus implements OnInit{
+export class ServerStatus implements OnInit, OnDestroy {
   //currentStatus can be only one of the 3 strings
   currentStatus: 'online' | 'offline' | 'unknown' = 'online';
+  private interval?: number;
 
   ngOnInit() {
-    setInterval(() => {
+    console.log('on init');
+    this.interval = setInterval(() => {
       const random = Math.random();
       if (random < 0.5) {
         this.currentStatus = 'online';
@@ -21,5 +23,13 @@ export class ServerStatus implements OnInit{
         this.currentStatus = 'unknown';
       }
     }, 5000);
+  }
+
+  ngAfterViewInit() {
+    console.log('After view init');
+  }
+
+  ngOnDestroy(): void {
+    console.log('');
   }
 }
