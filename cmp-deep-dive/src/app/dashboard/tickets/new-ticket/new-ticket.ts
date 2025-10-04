@@ -10,9 +10,8 @@ import { Control } from '../../../shared/control/control';
   styleUrl: './new-ticket.css',
 })
 export class NewTicket {
-  onSubmit(titleElement: HTMLInputElement) {
-    console.dir(titleElement);
-    const enteredTitle = titleElement.value;
-    console.log(enteredTitle);
+  onSubmit(title: string, ticketText: string) {
+    console.log(title);
+    console.log(ticketText);
   }
 }
