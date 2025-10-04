@@ -10,7 +10,7 @@ export class ServerStatus {
   //currentStatus can be only one of the 3 strings
   currentStatus: 'online' | 'offline' | 'unknown' = 'online';
 
-  constructor() {
+  ngOnInit() {
     setInterval(() => {
       const random = Math.random();
       if (random < 0.5) {
