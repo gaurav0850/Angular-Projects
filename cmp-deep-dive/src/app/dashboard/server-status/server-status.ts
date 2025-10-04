@@ -4,8 +4,22 @@ import { Component } from '@angular/core';
   selector: 'app-server-status',
   imports: [],
   templateUrl: './server-status.html',
-  styleUrl: './server-status.css'
+  styleUrl: './server-status.css',
 })
 export class ServerStatus {
-  currentStatus = 'online';
+  //currentStatus can be only one of the 3 strings
+  currentStatus: 'online' | 'offline' | 'unknown' = 'online';
+
+  constructor() {
+    setInterval(() => {
+      const random = Math.random();
+      if (random < 0.5) {
+        this.currentStatus = 'online';
+      } else if (random < 0.9) {
+        this.currentStatus = 'offline';
+      } else {
+        this.currentStatus = 'unknown';
+      }
+    }, 5000);
+  }
 }
