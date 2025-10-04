@@ -6,6 +6,12 @@
   'status-unknown': currentStatus === 'unknown'
 }"
 >
+<!-- Css binding can be done in following way -->
+<!-- [style]="{
+  'font-size': '64px'
+  fontSize: '64px'
+}" -->
+
   @if (currentStatus === 'online') {
   <p>Servers are online</p>
   <p>All systems are operational.</p>
