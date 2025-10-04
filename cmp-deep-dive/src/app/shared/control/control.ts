@@ -1,7 +1,7 @@
 import {
   AfterContentInit,
+  afterEveryRender,
   afterNextRender,
-  afterRenderEffect,
   Component,
   contentChild,
   ContentChild,
@@ -44,7 +44,7 @@ export class Control implements AfterContentInit{
   >('input');
 
   constructor() {
-    afterRenderEffect(() => {
+    afterEveryRender(() => {
       // if any component in angular application is changed, then this will execute
       console.log('Control component After render effect');
     });
