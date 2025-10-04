@@ -1,5 +1,7 @@
 import {
   Component,
+  contentChild,
+  ContentChild,
   ElementRef,
   HostBinding,
   HostListener,
@@ -28,8 +30,18 @@ export class Control {
 
   private el = inject(ElementRef);
 
+  // @ContentChild('input') private control?: ElementRef<
+  //   HTMLInputElement | HTMLTextAreaElement
+  // >;
+
+  //angular 17 or later
+  private control = contentChild<ElementRef<
+  HTMLInputElement | HTMLTextAreaElement>
+  >('input');
+
   onClick() {
     console.log('Clicked');
     console.log(this.el);
+    console.log(this.control());
   }
 }
